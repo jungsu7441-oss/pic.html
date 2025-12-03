@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5초사진</title>
+</head>
+<body>
+    <img id="CImage" src="백지.jpg" alt="이미지">
+    <div>
+        <input id ="sentence"placeholder="정답을 입력하세요"/>
+        <button id="start">시작</button>
+        <button onclick="check()">확인</button>
+    </div>
+    <div>
+        <script>
+            const Image = document.getElementById('Image');
+            const Button = document.getElementById('Button');
+            const text="화분 전구 손톱깎이 펜 수첩 반지 시계 칫솔 케이크 헤드폰";
+            let Atext=text.split(" ");
+            let count =0;
+            let checkcount=0;
+            start.addEventListener('click', function() {
+                setInterval(function(){
+                    CImage.setAttribute('src', '사진.png');
+                    if(count===5){
+                        CImage.setAttribute('src', '백지.jpg');
+                    }else{
+                        count++;
+                    }
+                },1000);    
+            });
+            function check(){
+                let ans=document.getElementById("sentence").value;
+                let aans = ans.split(" ");
+                let B=0;
+                for(let A=0;A<aans.length;A++){
+                    if(Atext.includes(aans[A])){
+                        checkcount++;
+                    }
+                }
+                console.log(checkcount)
+            switch(checkcount/1){
+                case 10:
+                    alert("100점 합격")
+                    checkcount=0;
+                    break;
+                case 9:
+                    alert("90점 합격")
+                    checkcount=0;
+                    break;
+                case 8:
+                    alert("80점 합격")
+                    checkcount=0;
+                break;
+                case 7:
+                    alert("70점 합격")
+                    checkcount=0;
+                    break;
+                default:
+                    alert("불합격 다시 입력하세요")
+                    checkcount=0;
+                    break;
+            }
+            }   
+
+        </script>
+    </div>
+</body>
+</html>
