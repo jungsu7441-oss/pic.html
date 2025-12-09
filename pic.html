@@ -14,8 +14,6 @@
     </div>
     <div>
         <script>
-            const Image = document.getElementById('Image');
-            const Button = document.getElementById('Button');
             const text="화분 전구 손톱깎이 펜 수첩 반지 시계 칫솔 케이크 헤드폰";
             let Atext=text.split(" ");
             let count =0;
@@ -23,7 +21,7 @@
             start.addEventListener('click', function() {
                 setInterval(function(){
                     CImage.setAttribute('src', '사진.png');
-                    if(count===5){
+                    if(count>=5){
                         CImage.setAttribute('src', '백지.jpg');
                     }else{
                         count++;
@@ -33,7 +31,6 @@
             function check(){
                 let ans=document.getElementById("sentence").value;
                 let aans = ans.split(" ");
-                let B=0;
                 for(let A=0;A<aans.length;A++){
                     if(Atext.includes(aans[A])){
                         checkcount++;
@@ -42,7 +39,7 @@
                 console.log(checkcount)
             switch(checkcount/1){
                 case 10:
-                    alert("100점 합격")
+                    alert("100점 합격 다음 문제로 넘어가세요")
                     checkcount=0;
                     break;
                 case 9:
